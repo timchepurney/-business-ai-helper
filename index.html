@@ -23,36 +23,44 @@ color:white;
 
 
 header{
+
 height:90px;
 display:flex;
 align-items:center;
-justify-content:space-between;
-padding:0 45px;
+justify-content:center;
 border-bottom:1px solid #222;
-position:sticky;
-top:0;
+position:relative;
 background:#000;
-z-index:5;
+
 }
 
 
 .logo{
+
 font-size:38px;
 font-weight:900;
 letter-spacing:6px;
+
 }
 
 
 .menu{
+
+position:absolute;
+right:45px;
 font-size:35px;
 cursor:pointer;
+
 }
 
 
+
 .page{
+
 display:none;
-padding:55px 45px;
+padding:50px 45px;
 min-height:90vh;
+
 }
 
 
@@ -61,52 +69,46 @@ display:block;
 }
 
 
-/* HOME */
 
-.hero h1{
-font-size:95px;
-letter-spacing:4px;
-line-height:.9;
+
+
+h1{
+
+font-size:50px;
+margin-bottom:30px;
+
 }
+
+
+
+.hero h2{
+
+font-size:80px;
+letter-spacing:5px;
+
+}
+
 
 
 .hero p{
-margin-top:25px;
+
 color:#aaa;
 font-size:22px;
-}
+margin-top:20px;
 
-
-button{
-padding:18px 45px;
-border:none;
-border-radius:40px;
-cursor:pointer;
-font-size:18px;
-margin-top:30px;
-}
-
-
-.shopBtn{
-background:white;
-color:black;
-}
-
-
-.back{
-background:#222;
-color:white;
 }
 
 
 
-/* SHOP */
 
 
-.sectionTitle{
-font-size:45px;
-margin-bottom:30px;
+.section{
+
+margin-top:50px;
+
 }
+
+
 
 
 .popular{
@@ -115,19 +117,20 @@ background:#111;
 border:1px solid #222;
 border-radius:25px;
 padding:35px;
-margin-bottom:50px;
 
 }
+
 
 
 
 .shopGrid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:25px;
 
 }
+
 
 
 
@@ -139,6 +142,7 @@ border-radius:25px;
 padding:30px;
 
 }
+
 
 
 
@@ -154,10 +158,14 @@ margin-bottom:20px;
 
 
 
+
 .product p{
+
 color:#aaa;
-margin-top:12px;
+margin-top:10px;
+
 }
+
 
 
 
@@ -170,7 +178,7 @@ font-size:22px;
 
 
 
-/* MENU */
+
 
 
 #sideMenu{
@@ -178,9 +186,9 @@ font-size:22px;
 position:fixed;
 right:-320px;
 top:0;
-width:320px;
 height:100%;
-background:#0b0b0b;
+width:320px;
+background:#0c0c0c;
 padding:40px;
 transition:.3s;
 z-index:10;
@@ -198,12 +206,13 @@ cursor:pointer;
 
 
 
+
 #sideMenu a{
 
 display:block;
 color:white;
 text-decoration:none;
-font-size:24px;
+font-size:25px;
 margin-top:35px;
 cursor:pointer;
 
@@ -211,10 +220,11 @@ cursor:pointer;
 
 
 
+
+
 </style>
 
 </head>
-
 
 
 <body>
@@ -244,9 +254,10 @@ ASTRIS
 
 <a onclick="showPage('home')">Home</a>
 
-<a onclick="showPage('shop')">Shop All</a>
+<a onclick="showPage('shop')">Shop</a>
 
 <a onclick="showPage('about')">About</a>
+
 
 </div>
 
@@ -259,19 +270,14 @@ ASTRIS
 <div id="home" class="page active hero">
 
 
-<h1>
+<h2>
 ASTRIS
-</h1>
+</h2>
 
 
 <p>
-Electric moto accessories and streetwear built for riders.
+Electric moto accessories and rider style.
 </p>
-
-
-<button class="shopBtn" onclick="showPage('shop')">
-Shop All
-</button>
 
 
 </div>
@@ -282,11 +288,11 @@ Shop All
 
 
 
-
 <div id="shop" class="page">
 
 
-<h1 class="sectionTitle">
+
+<h1>
 Most Popular
 </h1>
 
@@ -300,8 +306,9 @@ Foot Lock
 </h2>
 
 <p>
-Our rider favorite accessory.
+Wheelie accessory built for riders.
 </p>
+
 
 <h3 class="price">
 $25
@@ -315,35 +322,16 @@ $25
 
 
 
-<h1 class="sectionTitle">
+<div class="section">
+
+
+<h1>
 All Products
 </h1>
 
 
 
-
 <div class="shopGrid">
-
-
-
-<div class="product">
-
-<img src="footlock.jpg" class="productImg">
-
-<h2>
-Foot Lock
-</h2>
-
-<p>
-Wheelie accessory.
-</p>
-
-<h3 class="price">
-$25
-</h3>
-
-</div>
-
 
 
 
@@ -356,7 +344,7 @@ Grips
 </h2>
 
 <p>
-Clean rider setup.
+Clean bike setup.
 </p>
 
 <h3 class="price">
@@ -370,6 +358,28 @@ $20
 
 <div class="product">
 
+<img src="stickers.jpg" class="productImg">
+
+<h2>
+Stickers
+</h2>
+
+<p>
+Customize your ride.
+</p>
+
+<h3 class="price">
+$10
+</h3>
+
+</div>
+
+
+
+
+
+<div class="product">
+
 <img src="tee.jpg" class="productImg">
 
 <h2>
@@ -377,7 +387,7 @@ Astris Tee
 </h2>
 
 <p>
-Street rider style.
+Rider streetwear.
 </p>
 
 <h3 class="price">
@@ -388,18 +398,14 @@ $35
 
 
 
+
 </div>
-
-
-
-<button class="back" onclick="showPage('home')">
-← Back
-</button>
-
 
 
 </div>
 
+
+</div>
 
 
 
@@ -410,18 +416,13 @@ $35
 
 
 <h1>
-About
+About Astris
 </h1>
 
 
-<p style="color:#aaa;margin-top:20px;font-size:22px;">
-Astris creates clean products for electric riders.
+<p style="color:#aaa;font-size:22px;">
+Clean products for electric riders.
 </p>
-
-
-<button class="back" onclick="showPage('home')">
-← Back
-</button>
 
 
 </div>
