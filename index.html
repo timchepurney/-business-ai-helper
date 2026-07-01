@@ -1,527 +1,161 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Astris</title>
-
+<title>ASTRIS Moto</title>
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{
+margin:0;
 background:#000;
 color:white;
 }
-
-
 header{
-height:90px;
+height:80px;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:space-between;
+padding:0 25px;
 border-bottom:1px solid #222;
-position:relative;
 }
-
-
 .logo{
-font-size:38px;
+font-size:28px;
 font-weight:900;
-letter-spacing:6px;
+letter-spacing:4px;
 }
-
-
 .menu{
-position:absolute;
-right:40px;
-font-size:35px;
+font-size:28px;
 cursor:pointer;
 }
-
-
-
-.page{
+nav{
 display:none;
-padding:50px 45px;
-min-height:90vh;
-}
-
-
-.active{
-display:block;
-}
-
-
-
-.hero h1{
-font-size:95px;
-letter-spacing:5px;
-}
-
-
-.hero p{
-margin-top:20px;
-font-size:22px;
-color:#aaa;
-}
-
-
-
-.popular{
-
-margin-top:45px;
+position:absolute;
+right:20px;
+top:70px;
 background:#111;
-border:1px solid #222;
-border-radius:25px;
-padding:35px;
-
+padding:20px;
+border-radius:15px;
 }
-
-
-
-.sectionTitle{
-
-margin-top:60px;
-font-size:45px;
-
-}
-
-
-
-.shopGrid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-margin-top:35px;
-
-}
-
-
-
-.product{
-
-background:#111;
-border:1px solid #222;
-border-radius:25px;
-padding:30px;
-
-}
-
-
-
-.product p{
-
-color:#aaa;
-margin-top:12px;
-
-}
-
-
-
-.price{
-
-margin-top:15px;
-font-size:25px;
-
-}
-
-
-
-
-button{
-
-margin-top:30px;
-padding:18px 45px;
-border:none;
-border-radius:40px;
-cursor:pointer;
-
-}
-
-
-.back{
-
-background:#222;
-color:white;
-
-}
-
-
-
-
-#sideMenu{
-
-position:fixed;
-right:-300px;
-top:0;
-height:100%;
-width:300px;
-background:#0b0b0b;
-padding:40px;
-transition:.3s;
-z-index:10;
-
-}
-
-
-
-.close{
-
-font-size:35px;
-cursor:pointer;
-
-}
-
-
-
-#sideMenu a{
-
+nav a{
 display:block;
 color:white;
 text-decoration:none;
-font-size:25px;
-margin-top:35px;
-cursor:pointer;
-
+margin:15px 0;
 }
-
-
-
+.hero{
+height:70vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+.hero h1{
+font-size:70px;
+letter-spacing:8px;
+}
+.hero p{
+color:#aaa;
+}
+button{
+background:white;
+color:black;
+border:none;
+padding:15px 30px;
+border-radius:30px;
+font-weight:bold;
+}
+.section{
+padding:30px;
+}
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:20px;
+}
+.card{
+background:#111;
+padding:20px;
+border-radius:20px;
+border:1px solid #222;
+}
+.card h3{
+margin-bottom:5px;
+}
+.price{
+color:#aaa;
+}
 </style>
-
 </head>
-
-
 
 <body>
 
-
-
 <header>
+<div class="logo">ASTRIS</div>
 
-<div class="logo">
-ASTRIS
-</div>
+<div class="menu" onclick="openMenu()">☰</div>
 
-
-<div class="menu" onclick="toggleMenu()">
-☰
-</div>
-
-
+<nav id="nav">
+<a href="#">Home</a>
+<a href="#">Accessories</a>
+<a href="#">Clothing</a>
+<a href="#">Cart</a>
+</nav>
 </header>
 
 
+<section class="hero">
+<h1>ASTRIS</h1>
+<p>Premium moto accessories & streetwear</p>
+<button>Shop Now</button>
+</section>
 
 
+<section class="section">
 
+<h2>Most Popular</h2>
 
-<div id="sideMenu">
+<div class="products">
 
+<div class="card">
+<h3>Foot Pegs</h3>
+<p class="price">$49.99</p>
+</div>
 
-<div class="close" onclick="toggleMenu()">✕</div>
+<div class="card">
+<h3>Bike Grips</h3>
+<p class="price">$19.99</p>
+</div>
 
+<div class="card">
+<h3>Stickers</h3>
+<p class="price">$9.99</p>
+</div>
 
-<a onclick="showPage('home')">Home</a>
+<div class="card">
+<h3>ASTRIS Tee</h3>
+<p class="price">$29.99</p>
+</div>
 
-<a onclick="showPage('accessories')">Accessories</a>
-
-<a onclick="showPage('clothing')">Clothing</a>
-
+<div class="card">
+<h3>ASTRIS Hoodie</h3>
+<p class="price">$59.99</p>
+</div>
 
 </div>
 
-
-
-
-
-
-
-
-
-<div id="home" class="page active hero">
-
-
-<h1>
-ASTRIS
-</h1>
-
-
-<p>
-Electric moto accessories built for riders.
-</p>
-
-
-
-
-
-<div class="popular">
-
-<h2>
-Most Popular
-</h2>
-
-
-<div class="product" style="margin-top:25px;">
-
-
-<h2>
-Foot Lock
-</h2>
-
-
-<p>
-Wheelie accessory coming soon.
-</p>
-
-
-<h3 class="price">
-$25
-</h3>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<h1 class="sectionTitle">
-All Products
-</h1>
-
-
-
-<div class="shopGrid">
-
-
-
-<div class="product">
-
-<h2>Foot Locks</h2>
-
-<p>Wheelie accessories.</p>
-
-</div>
-
-
-
-<div class="product">
-
-<h2>Grips</h2>
-
-<p>Clean rider setup.</p>
-
-</div>
-
-
-
-<div class="product">
-
-<h2>Pegs</h2>
-
-<p>Upgrade your ride.</p>
-
-</div>
-
-
-
-<div class="product">
-
-<h2>Stickers</h2>
-
-<p>Customize your bike.</p>
-
-</div>
-
-
-
-<div class="product">
-
-<h2>Tees</h2>
-
-<p>Astris street style.</p>
-
-</div>
-
-
-
-<div class="product">
-
-<h2>Hoodies</h2>
-
-<p>Clean everyday fits.</p>
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div id="accessories" class="page">
-
-
-<h1>
-Accessories
-</h1>
-
-
-
-<div class="shopGrid">
-
-
-<div class="product">
-<h2>Foot Locks</h2>
-<p>Wheelie accessories.</p>
-</div>
-
-
-<div class="product">
-<h2>Grips</h2>
-<p>Bike upgrades.</p>
-</div>
-
-
-<div class="product">
-<h2>Pegs</h2>
-<p>Rider setup parts.</p>
-</div>
-
-
-<div class="product">
-<h2>Stickers</h2>
-<p>Custom style.</p>
-</div>
-
-
-</div>
-
-
-
-<button class="back" onclick="showPage('home')">
-← Back
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div id="clothing" class="page">
-
-
-<h1>
-Clothing
-</h1>
-
-
-<div class="shopGrid">
-
-
-<div class="product">
-<h2>Tees</h2>
-<p>Astris rider wear.</p>
-</div>
-
-
-
-<div class="product">
-<h2>Hoodies</h2>
-<p>Street style fits.</p>
-</div>
-
-
-</div>
-
-
-
-
-<button class="back" onclick="showPage('home')">
-← Back
-</button>
-
-
-</div>
-
-
-
-
-
-
-
+</section>
 
 
 <script>
-
-
-function toggleMenu(){
-
-let menu=document.getElementById("sideMenu");
-
-menu.style.right =
-menu.style.right==="0px"
-? "-300px"
-: "0px";
-
+function openMenu(){
+let menu=document.getElementById("nav");
+if(menu.style.display=="block"){
+menu.style.display="none";
+}else{
+menu.style.display="block";
 }
-
-
-
-
-function showPage(page){
-
-document.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
-
-
-document.getElementById(page)
-.classList.add("active");
-
-
-document.getElementById("sideMenu")
-.style.right="-300px";
-
 }
-
-
-
 </script>
 
-
-
 </body>
-
 </html>
