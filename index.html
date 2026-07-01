@@ -21,14 +21,13 @@ font-family:Arial, Helvetica, sans-serif;
 
 header{
 
-height:120px;
+height:140px;
 display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0 6%;
 
 background:#000;
-
 position:sticky;
 top:0;
 z-index:10;
@@ -38,31 +37,36 @@ z-index:10;
 
 .logo{
 
-font-size:55px;
+font-size:60px;
 font-weight:900;
-letter-spacing:14px;
+letter-spacing:15px;
 
 }
+
 
 
 nav{
 
 display:flex;
-gap:20px;
+gap:25px;
 
 }
+
 
 
 nav button,.cart{
 
 background:#111;
+
 color:white;
 
 border:1px solid #333;
 
-padding:16px 25px;
+padding:22px 38px;
 
-border-radius:40px;
+border-radius:50px;
+
+font-size:22px;
 
 font-weight:900;
 
@@ -72,9 +76,18 @@ cursor:pointer;
 
 
 
+nav button:hover,.cart:hover{
+
+background:white;
+color:black;
+
+}
+
+
+
 .section{
 
-padding:70px 7%;
+padding:80px 7%;
 
 }
 
@@ -83,10 +96,8 @@ padding:70px 7%;
 .cards{
 
 display:grid;
-
 grid-template-columns:repeat(3,1fr);
-
-gap:30px;
+gap:35px;
 
 }
 
@@ -98,9 +109,9 @@ background:#111;
 
 border:1px solid #333;
 
-border-radius:30px;
+border-radius:35px;
 
-padding:25px;
+padding:30px;
 
 cursor:pointer;
 
@@ -116,7 +127,7 @@ height:230px;
 
 object-fit:cover;
 
-border-radius:20px;
+border-radius:25px;
 
 }
 
@@ -124,7 +135,7 @@ border-radius:20px;
 
 .card h3{
 
-font-size:35px;
+font-size:38px;
 
 margin-top:15px;
 
@@ -134,9 +145,9 @@ margin-top:15px;
 
 .card p{
 
-color:#aaa;
+font-size:24px;
 
-font-size:22px;
+color:#aaa;
 
 }
 
@@ -144,24 +155,29 @@ font-size:22px;
 
 .add,.buy,.back{
 
-padding:15px 25px;
+padding:20px 40px;
 
 border:none;
 
-border-radius:30px;
+border-radius:45px;
+
+font-size:22px;
 
 font-weight:900;
 
-margin-top:15px;
-
 cursor:pointer;
 
+margin-top:20px;
+
 }
+
 
 
 .add{
 
 background:white;
+
+color:black;
 
 }
 
@@ -169,7 +185,17 @@ background:white;
 
 .buy{
 
-background:#333;
+background:#222;
+
+color:white;
+
+}
+
+
+
+.back{
+
+background:#111;
 
 color:white;
 
@@ -185,43 +211,25 @@ display:none;
 
 
 
-.product img{
-
-width:450px;
-
-max-width:100%;
-
-border-radius:30px;
-
-}
-
-
-
-.product h1{
-
-font-size:60px;
-
-}
-
-
-
 #cart-box{
 
 display:none;
 
 position:fixed;
 
-right:30px;
+right:25px;
 
 top:130px;
 
-width:420px;
+width:430px;
 
 background:#111;
 
-border-radius:30px;
+border:1px solid #333;
 
-padding:30px;
+border-radius:35px;
+
+padding:35px;
 
 z-index:50;
 
@@ -249,7 +257,7 @@ color:white;
 
 border:none;
 
-padding:8px;
+padding:10px;
 
 border-radius:20px;
 
@@ -268,20 +276,28 @@ grid-template-columns:1fr;
 
 .logo{
 
-font-size:35px;
+font-size:38px;
+
+}
+
+
+nav button,.cart{
+
+font-size:15px;
+
+padding:14px;
 
 }
 
 }
+
 
 </style>
 
 </head>
 
 
-
 <body>
-
 
 
 <header>
@@ -291,11 +307,11 @@ font-size:35px;
 
 <nav>
 
-<button onclick="showProducts('all')">Home</button>
+<button onclick="showProducts()">Home</button>
 
-<button onclick="showProducts('accessories')">Accessories</button>
+<button onclick="filter('accessories')">Accessories</button>
 
-<button onclick="showProducts('clothes')">Clothing</button>
+<button onclick="filter('clothes')">Clothing</button>
 
 </nav>
 
@@ -306,11 +322,7 @@ font-size:35px;
 
 </button>
 
-
 </header>
-
-
-
 
 
 
@@ -323,84 +335,47 @@ font-size:35px;
 <div class="cards">
 
 
-
 <div class="card accessories" onclick="openProduct('Foot Locks',40,'Images/footlocks.jpg')">
 
-
 <img src="Images/footlocks.jpg">
-
 
 <h3>Foot Locks</h3>
 
 <p>$40</p>
 
-
 </div>
-
-
-
 
 
 <div class="card clothes" onclick="openProduct('ASTRIS Hoodie',70,'Images/hoodie.jpg')">
 
-
 <img src="Images/hoodie.jpg">
-
 
 <h3>ASTRIS Hoodie</h3>
 
 <p>$70</p>
 
-
 </div>
-
-
-
 
 
 <div class="card clothes" onclick="openProduct('ASTRIS Tee',35,'Images/tee.jpg')">
 
-
 <img src="Images/tee.jpg">
-
 
 <h3>ASTRIS Tee</h3>
 
 <p>$35</p>
 
-
 </div>
-
-
-
-
-
-<div class="card accessories" onclick="openProduct('Grips',25,'Images/grips.jpg')">
-
-
-<img src="Images/grips.jpg">
-
-
-<h3>Grips</h3>
-
-<p>$25</p>
-
-
-</div>
-
 
 
 </div>
 
 </div>
-
-
 
 
 
 
 <div id="product-page" class="section">
-
 
 <button class="back" onclick="back()">
 
@@ -409,10 +384,7 @@ font-size:35px;
 </button>
 
 
-<div class="product">
-
-
-<img id="product-img">
+<img id="product-img" width="450">
 
 
 <h1 id="product-name"></h1>
@@ -436,10 +408,6 @@ Buy Now
 
 </div>
 
-</div>
-
-
-
 
 
 
@@ -449,9 +417,7 @@ Buy Now
 <h2>Your Cart</h2>
 
 
-<div id="items">
-
-</div>
+<div id="items"></div>
 
 
 <h3>Total: $<span id="total">0</span></h3>
@@ -470,16 +436,11 @@ Close
 
 
 
-
-
 <script>
 
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
 
 let current={};
-
 
 
 function save(){
@@ -500,18 +461,13 @@ add(current.name,current.price);
 
 function add(name,price){
 
-cart.push({
-name:name,
-price:price
-});
-
+cart.push({name,price});
 
 save();
 
 update();
 
 }
-
 
 
 
@@ -525,19 +481,18 @@ let html="";
 let total=0;
 
 
-cart.forEach((item,index)=>{
+cart.forEach((x,i)=>{
 
-
-total+=item.price;
+total+=x.price;
 
 
 html+=`
 
 <div class="cart-line">
 
-${item.name} $${item.price}
+${x.name} $${x.price}
 
-<button class="remove" onclick="removeItem(${index})">
+<button class="remove" onclick="removeItem(${i})">
 
 X
 
@@ -552,25 +507,21 @@ X
 
 document.getElementById("items").innerHTML=html;
 
-
 document.getElementById("total").innerHTML=total;
-
 
 }
 
 
 
+function removeItem(i){
 
-function removeItem(index){
-
-cart.splice(index,1);
+cart.splice(i,1);
 
 save();
 
 update();
 
 }
-
 
 
 
@@ -592,24 +543,17 @@ document.getElementById("cart-box").style.display="none";
 
 function openProduct(name,price,img){
 
-
-current={
-name:name,
-price:price
-};
-
+current={name,price};
 
 document.getElementById("products").style.display="none";
 
 document.getElementById("product-page").style.display="block";
-
 
 document.getElementById("product-img").src=img;
 
 document.getElementById("product-name").innerHTML=name;
 
 document.getElementById("product-price").innerHTML="$"+price;
-
 
 }
 
@@ -625,42 +569,23 @@ document.getElementById("products").style.display="block";
 
 
 
+function filter(type){
 
-function showProducts(type){
+document.querySelectorAll(".card").forEach(card=>{
 
+card.style.display=card.classList.contains(type)?"block":"none";
+
+});
+
+}
+
+
+
+function showProducts(){
 
 document.getElementById("product-page").style.display="none";
 
 document.getElementById("products").style.display="block";
-
-
-let cards=document.querySelectorAll(".card");
-
-
-cards.forEach(card=>{
-
-
-if(type==="all"){
-
-card.style.display="block";
-
-}
-
-else if(card.classList.contains(type)){
-
-card.style.display="block";
-
-}
-
-else{
-
-card.style.display="none";
-
-}
-
-
-});
-
 
 }
 
@@ -668,9 +593,7 @@ card.style.display="none";
 
 update();
 
-
 </script>
-
 
 
 </body>
