@@ -25,7 +25,6 @@ height:120px;
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 padding:0 6%;
 
 background:#000;
@@ -46,6 +45,7 @@ letter-spacing:14px;
 }
 
 
+
 nav{
 
 display:flex;
@@ -58,7 +58,6 @@ gap:25px;
 nav button{
 
 background:#111;
-
 color:white;
 
 border:1px solid #333;
@@ -99,65 +98,9 @@ cursor:pointer;
 
 
 
-.hero{
-
-height:75vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-}
-
-
-
-.hero h1{
-
-font-size:140px;
-
-letter-spacing:25px;
-
-}
-
-
-
-.hero p{
-
-font-size:28px;
-
-color:#777;
-
-margin:30px;
-
-}
-
-
-
-.shop-btn{
-
-padding:25px 90px;
-
-border-radius:50px;
-
-border:none;
-
-font-size:25px;
-
-font-weight:900;
-
-}
-
-
-
 .section{
 
-padding:90px 7%;
+padding:80px 7%;
 
 display:none;
 
@@ -178,26 +121,6 @@ h2{
 font-size:65px;
 
 margin-bottom:50px;
-
-}
-
-
-
-.back{
-
-background:#111;
-
-color:white;
-
-padding:15px 30px;
-
-border-radius:30px;
-
-border:none;
-
-font-size:20px;
-
-margin-bottom:30px;
 
 }
 
@@ -261,13 +184,33 @@ margin:15px 0;
 
 padding:15px 30px;
 
-border-radius:30px;
-
 border:none;
+
+border-radius:30px;
 
 font-weight:900;
 
 cursor:pointer;
+
+}
+
+
+
+.back{
+
+background:#111;
+
+color:white;
+
+padding:15px 30px;
+
+border-radius:30px;
+
+border:none;
+
+font-size:18px;
+
+margin-bottom:30px;
 
 }
 
@@ -299,6 +242,20 @@ z-index:50;
 
 
 
+.cart-line{
+
+display:flex;
+
+justify-content:space-between;
+
+margin:20px 0;
+
+font-size:20px;
+
+}
+
+
+
 .remove{
 
 background:#222;
@@ -310,21 +267,6 @@ border:none;
 padding:8px 15px;
 
 border-radius:20px;
-
-margin-left:10px;
-
-}
-
-
-.cart-line{
-
-display:flex;
-
-justify-content:space-between;
-
-margin:20px 0;
-
-font-size:20px;
 
 }
 
@@ -359,6 +301,12 @@ padding:12px;
 }
 
 
+cards{
+
+grid-template-columns:1fr;
+
+}
+
 .cards{
 
 grid-template-columns:1fr;
@@ -366,9 +314,9 @@ grid-template-columns:1fr;
 }
 
 
-.hero h1{
+.card{
 
-font-size:70px;
+height:300px;
 
 }
 
@@ -390,6 +338,7 @@ right:5%;
 
 
 <body>
+
 
 
 <header>
@@ -421,20 +370,102 @@ right:5%;
 
 
 
+
 <section id="home" class="section active">
 
 
-<div class="hero">
+<h2>Most Popular</h2>
 
-<h1>ASTRIS</h1>
 
-<p>Premium moto accessories & streetwear</p>
+<div class="cards">
 
-<button class="shop-btn" onclick="show('accessories')">
 
-Shop Now
 
+<div class="card">
+
+<h3>Foot Locks</h3>
+
+<p>$40</p>
+
+<button class="add" onclick="add('Foot Locks',40)">
+🖤 Add to Cart
 </button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>ASTRIS Hoodie</h3>
+
+<p>$70</p>
+
+<button class="add" onclick="add('ASTRIS Hoodie',70)">
+🖤 Add to Cart
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>ASTRIS Tee</h3>
+
+<p>$35</p>
+
+<button class="add" onclick="add('ASTRIS Tee',35)">
+🖤 Add to Cart
+</button>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<h2 style="margin-top:100px;">All Products</h2>
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<h3>Grips</h3>
+
+<p>$25</p>
+
+<button class="add" onclick="add('Grips',25)">
+🖤 Add to Cart
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Stickers</h3>
+
+<p>$10</p>
+
+<button class="add" onclick="add('Stickers',10)">
+🖤 Add to Cart
+</button>
+
+</div>
+
+
 
 </div>
 
@@ -445,13 +476,12 @@ Shop Now
 
 
 
+
 <section id="accessories" class="section">
 
 
 <button class="back" onclick="show('home')">
-
 ← Back
-
 </button>
 
 
@@ -472,7 +502,6 @@ Shop Now
 </button>
 
 </div>
-
 
 
 <div class="card">
@@ -511,13 +540,12 @@ Shop Now
 
 
 
+
 <section id="clothes" class="section">
 
 
 <button class="back" onclick="show('home')">
-
 ← Back
-
 </button>
 
 
@@ -554,8 +582,8 @@ Shop Now
 </div>
 
 
-</div>
 
+</div>
 
 </section>
 
@@ -575,10 +603,8 @@ Shop Now
 <h3>Total: $<span id="total">0</span></h3>
 
 
-<button class="back" onclick="closeCart">
-
+<button class="back" onclick="closeCart()">
 Close
-
 </button>
 
 
@@ -592,7 +618,7 @@ Close
 <script>
 
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart=JSON.parse(localStorage.getItem("cart")) || [];
 
 
 
@@ -616,7 +642,6 @@ update();
 
 
 
-
 function removeItem(i){
 
 cart.splice(i,1);
@@ -629,9 +654,7 @@ update();
 
 
 
-
 function update(){
-
 
 document.getElementById("count").innerHTML=cart.length;
 
@@ -667,8 +690,8 @@ document.getElementById("items").innerHTML=html;
 
 document.getElementById("total").innerHTML=total;
 
-
 }
+
 
 
 
@@ -702,7 +725,6 @@ x.classList.remove("active");
 document.getElementById(page).classList.add("active");
 
 }
-
 
 
 update();
