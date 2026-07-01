@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,123 +19,116 @@ font-family:Arial, Helvetica, sans-serif;
 body{
 background:#000;
 color:white;
-overflow-x:hidden;
 }
 
 
 header{
-height:100px;
+height:90px;
 display:flex;
-align-items:center;
 justify-content:space-between;
-padding:0 60px;
+align-items:center;
+padding:0 40px;
 border-bottom:1px solid #222;
 }
 
 
 .logo{
-font-size:42px;
+font-size:38px;
 font-weight:900;
-letter-spacing:5px;
+letter-spacing:4px;
 }
 
 
 .menu{
-font-size:42px;
+font-size:38px;
 cursor:pointer;
 }
 
 
-.hero{
+
+.page{
+display:none;
+padding:50px;
 min-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-padding:60px;
 }
 
 
+.active{
+display:block;
+}
+
+
+
 .hero h1{
-font-size:100px;
-line-height:.9;
-max-width:800px;
+font-size:90px;
 }
 
 
 .hero p{
-margin-top:25px;
-font-size:25px;
 color:#aaa;
-max-width:600px;
+font-size:24px;
+margin-top:20px;
 }
 
 
+
 button{
-margin-top:40px;
-padding:22px 55px;
+margin-top:30px;
+padding:18px 40px;
 border-radius:40px;
 border:none;
-font-size:20px;
 cursor:pointer;
+font-size:18px;
 }
 
 
 .shop{
 background:white;
-color:black;
 }
+
 
 
 .cards{
 display:flex;
-gap:25px;
-padding:60px;
+gap:20px;
 flex-wrap:wrap;
 }
 
 
 .card{
+
 background:#111;
 border:1px solid #222;
 border-radius:25px;
-padding:40px;
-width:330px;
-}
+padding:30px;
+width:280px;
 
-
-.card h2{
-font-size:32px;
-}
-
-
-.card p{
-color:#aaa;
-margin-top:15px;
-font-size:18px;
 }
 
 
 
-/* SIDE MENU */
+.back{
 
+background:#222;
+color:white;
+
+}
+
+
+/* MENU */
 
 #sideMenu{
 
 position:fixed;
 top:0;
-right:-320px;
+right:-300px;
+width:300px;
 height:100%;
-width:320px;
-background:#0a0a0a;
-padding:50px;
+background:#111;
+padding:35px;
 transition:.3s;
-z-index:20;
+z-index:5;
 
-}
-
-
-#sideMenu h2{
-font-size:35px;
 }
 
 
@@ -143,15 +137,26 @@ font-size:35px;
 display:block;
 color:white;
 text-decoration:none;
-font-size:25px;
-margin-top:35px;
+font-size:24px;
+margin:25px 0;
+cursor:pointer;
+
+}
+
+
+.close{
+
+font-size:35px;
+cursor:pointer;
 
 }
 
 
 </style>
 
+
 </head>
+
 
 
 <body>
@@ -161,7 +166,7 @@ margin-top:35px;
 
 <div class="logo">ASTRIS</div>
 
-<div class="menu" onclick="openMenu()">☰</div>
+<div class="menu" onclick="toggleMenu()">☰</div>
 
 </header>
 
@@ -169,97 +174,137 @@ margin-top:35px;
 
 <div id="sideMenu">
 
-<h2>ASTRIS</h2>
+<div class="close" onclick="toggleMenu()">✕</div>
 
-<a href="#">Accessories</a>
-
-<a href="#">Clothing</a>
-
-<a href="#">Parts</a>
-
-<a href="#">Contact</a>
+<a onclick="showPage('home')">Home</a>
+<a onclick="showPage('accessories')">Accessories</a>
+<a onclick="showPage('clothing')">Clothing</a>
+<a onclick="showPage('parts')">Parts</a>
 
 </div>
 
 
 
-<section class="hero">
 
-<h1>
-Ride Different.
-</h1>
 
+<div id="home" class="page active hero">
+
+<h1>Ride Different.</h1>
 
 <p>
-Premium accessories and street style for electric riders.
+Premium accessories and style for electric riders.
 </p>
 
 
-<button class="shop">
+<button class="shop" onclick="showPage('accessories')">
 Shop Now
 </button>
 
 
-</section>
+</div>
 
 
 
 
-<section class="cards">
 
+<div id="accessories" class="page">
+
+<h1>Accessories</h1>
+
+<div class="cards">
 
 <div class="card">
+<h2>Bike Gear</h2>
+<p>Clean upgrades for your ride.</p>
+</div>
 
-<h2>Accessories</h2>
+<div class="card">
+<h2>Extras</h2>
+<p>Make your setup yours.</p>
+</div>
 
-<p>
-Upgrade your ride with clean gear.
-</p>
+</div>
+
+
+<button class="back" onclick="showPage('home')">
+← Back
+</button>
+
 
 </div>
 
 
 
+
+
+<div id="clothing" class="page">
+
+<h1>Clothing</h1>
+
+<div class="cards">
+
 <div class="card">
+<h2>Hoodies</h2>
+<p>Astris street style.</p>
+</div>
 
-<h2>Clothing</h2>
+<div class="card">
+<h2>Tees</h2>
+<p>Rider fits.</p>
+</div>
 
-<p>
-Simple fits for riders.
-</p>
+</div>
+
+
+<button class="back" onclick="showPage('home')">
+← Back
+</button>
+
 
 </div>
 
 
 
+
+
+<div id="parts" class="page">
+
+<h1>Parts</h1>
+
+<div class="cards">
+
 <div class="card">
-
-<h2>Parts</h2>
-
-<p>
-Built for your setup.
-</p>
+<h2>Upgrades</h2>
+<p>Build your setup.</p>
+</div>
 
 </div>
 
 
-</section>
+<button class="back" onclick="showPage('home')">
+← Back
+</button>
+
+
+</div>
+
+
+
 
 
 
 <script>
 
-function openMenu(){
+
+function toggleMenu(){
 
 let menu=document.getElementById("sideMenu");
 
 if(menu.style.right==="0px"){
 
-menu.style.right="-320px";
+menu.style.right="-300px";
 
-}
-
-else{
+}else{
 
 menu.style.right="0px";
 
@@ -267,9 +312,24 @@ menu.style.right="0px";
 
 }
 
+
+
+function showPage(page){
+
+let pages=document.querySelectorAll(".page");
+
+pages.forEach(p=>p.classList.remove("active"));
+
+document.getElementById(page).classList.add("active");
+
+document.getElementById("sideMenu").style.right="-300px";
+
+}
+
+
 </script>
 
 
-
 </body>
+
 </html>
