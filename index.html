@@ -18,6 +18,7 @@ color:white;
 font-family:Arial, Helvetica, sans-serif;
 }
 
+
 header{
 height:110px;
 display:flex;
@@ -27,162 +28,250 @@ padding:0 7%;
 background:#000;
 }
 
+
 .logo{
 font-size:45px;
 font-weight:900;
 letter-spacing:12px;
 }
 
+
 nav{
 display:flex;
 gap:45px;
 }
+
 
 nav a{
 color:#aaa;
 text-decoration:none;
 font-size:30px;
 font-weight:700;
-letter-spacing:1px;
-transition:.25s;
 }
+
 
 nav a:hover{
 color:white;
-transform:translateY(-3px);
 }
+
+
 
 .menu{
 font-size:45px;
 }
 
+
+
 .hero{
+
 height:80vh;
+
 display:flex;
 flex-direction:column;
+
 justify-content:center;
 align-items:center;
+
 text-align:center;
+
 }
+
+
 
 .hero h1{
+
 font-size:120px;
 letter-spacing:20px;
-font-weight:900;
+
 }
 
+
+
 .hero p{
+
 font-size:25px;
 color:#777;
 margin:30px;
+
 }
+
+
 
 button{
-padding:24px 85px;
-border-radius:60px;
+
+padding:20px 70px;
+
+border-radius:50px;
+
 border:none;
+
 background:white;
+
 color:black;
-font-size:24px;
+
+font-size:22px;
+
 font-weight:900;
+
 cursor:pointer;
-transition:.25s;
-box-shadow:0 0 30px rgba(255,255,255,.25);
+
 }
 
-button:hover{
-transform:scale(1.08);
-}
+
 
 .shop{
+
 padding:80px 7%;
+
 }
+
+
 
 h2{
+
 font-size:55px;
+
 margin-bottom:40px;
+
 }
 
-.regular{
-margin-top:90px;
-}
+
 
 .cards{
+
 display:grid;
+
 grid-template-columns:repeat(3,1fr);
+
 gap:30px;
+
 }
+
+
 
 .card{
-height:330px;
+
+height:350px;
+
 background:#111;
+
 border:1px solid #222;
+
 border-radius:30px;
+
 padding:30px;
+
 display:flex;
+
 flex-direction:column;
+
 justify-content:end;
+
 }
+
+
 
 .card h3{
+
 font-size:35px;
+
 }
 
+
+
 .card p{
+
 color:#888;
+
 font-size:22px;
+
+margin:10px 0;
+
 }
+
+
+.card button{
+
+padding:12px 25px;
+
+font-size:16px;
+
+width:fit-content;
+
+}
+
+
+
+.regular{
+
+margin-top:100px;
+
+}
+
+
 
 @media(max-width:800px){
 
 header{
+
 height:100px;
+
 padding:0 20px;
+
 }
+
 
 .logo{
+
 font-size:32px;
-letter-spacing:7px;
+
 }
+
 
 nav{
+
 display:none;
+
 }
+
 
 .menu{
+
 font-size:40px;
+
 }
+
 
 .hero h1{
+
 font-size:65px;
-letter-spacing:10px;
+
 }
 
-.hero p{
-font-size:18px;
-}
-
-button{
-padding:20px 55px;
-font-size:20px;
-}
 
 .cards{
+
 grid-template-columns:1fr;
+
 }
 
+
 h2{
+
 font-size:40px;
+
 }
 
 }
 
 </style>
 
+
 </head>
 
 
 <body>
+
 
 <header>
 
@@ -191,9 +280,9 @@ font-size:40px;
 <nav>
 
 <a href="#">Home</a>
-<a href="#">Shop</a>
-<a href="#">Accessories</a>
-<a href="#">Clothing</a>
+<a href="#shop">Shop</a>
+<a href="#shop">Accessories</a>
+<a href="#shop">Clothing</a>
 
 </nav>
 
@@ -202,63 +291,103 @@ font-size:40px;
 </header>
 
 
+
+
 <section class="hero">
+
 
 <h1>ASTRIS</h1>
 
 <p>Premium moto accessories & streetwear</p>
 
+
+<a href="#shop">
 <button>Shop Now</button>
+</a>
+
 
 </section>
 
 
-<section class="shop">
+
+
+<section class="shop" id="shop">
+
 
 <h2>Most Popular</h2>
 
+
 <div class="cards">
 
+
 <div class="card">
+
 <h3>Foot Locks</h3>
+
 <p>$40</p>
-</div>
+
+<button>Buy Now</button>
 
 </div>
+
+
+</div>
+
+
 
 
 <h2 class="regular">Regular Products</h2>
 
+
+
 <div class="cards">
+
 
 <div class="card">
 <h3>Grips</h3>
 <p>$25</p>
+<button>Buy Now</button>
 </div>
+
+
 
 <div class="card">
 <h3>Stickers</h3>
 <p>$10</p>
+<button>Buy Now</button>
 </div>
+
+
 
 <div class="card">
 <h3>Tees</h3>
 <p>$35</p>
+<button>Buy Now</button>
 </div>
+
+
 
 <div class="card">
 <h3>Hoodies</h3>
 <p>$70</p>
+<button>Buy Now</button>
 </div>
+
+
 
 <div class="card">
 <h3>Pegs</h3>
 <p>$45</p>
+<button>Buy Now</button>
 </div>
 
+
 </div>
+
 
 </section>
+
+
 
 </body>
 </html>
