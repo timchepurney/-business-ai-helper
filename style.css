@@ -1,36 +1,58 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
 
 body{
-background:#000;
-color:white;
-font-family:Arial, Helvetica, sans-serif;
+    background:#000;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
+
+/* HEADER */
 
 header{
 
-height:100px;
+    height:110px;
 
-display:flex;
-align-items:center;
-justify-content:space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-padding:0 8%;
+    padding:0 7%;
+
+    position:sticky;
+    top:0;
+
+    background:rgba(0,0,0,.9);
+    backdrop-filter:blur(10px);
+
+    z-index:20;
 
 }
-
 
 
 .logo{
 
-font-size:45px;
-font-weight:900;
-letter-spacing:12px;
+    font-size:45px;
+
+    font-weight:900;
+
+    letter-spacing:12px;
+
+}
+
+
+
+nav{
+
+    display:flex;
+
+    gap:35px;
+
+    align-items:center;
 
 }
 
@@ -38,12 +60,19 @@ letter-spacing:12px;
 
 nav a{
 
-color:#aaa;
-text-decoration:none;
+    color:#aaa;
 
-font-size:18px;
+    text-decoration:none;
 
-margin:25px;
+    font-size:20px;
+
+}
+
+
+
+nav a:hover{
+
+    color:white;
 
 }
 
@@ -51,31 +80,44 @@ margin:25px;
 
 .menu{
 
-font-size:40px;
+    font-size:45px;
+
+    cursor:pointer;
 
 }
 
+
+
+/* HERO */
 
 
 .hero{
 
-height:85vh;
+    height:85vh;
 
-display:flex;
-flex-direction:column;
+    display:flex;
 
-justify-content:center;
-align-items:center;
+    flex-direction:column;
 
-text-align:center;
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
 
 }
 
 
+
 .hero h1{
 
-font-size:130px;
-letter-spacing:25px;
+    font-size:130px;
+
+    letter-spacing:25px;
+
+    font-weight:900;
 
 }
 
@@ -83,10 +125,11 @@ letter-spacing:25px;
 
 .hero p{
 
-font-size:25px;
-color:#888;
+    font-size:25px;
 
-margin:30px;
+    color:#777;
+
+    margin:30px;
 
 }
 
@@ -94,19 +137,26 @@ margin:30px;
 
 button{
 
-font-size:20px;
+    padding:20px 60px;
 
-padding:20px 60px;
+    border-radius:50px;
 
-border-radius:40px;
+    border:none;
+
+    font-size:20px;
+
+    font-weight:bold;
 
 }
 
 
 
+/* PRODUCTS */
+
+
 .shop{
 
-padding:100px 8%;
+    padding:100px 7%;
 
 }
 
@@ -114,9 +164,9 @@ padding:100px 8%;
 
 .shop h2{
 
-font-size:55px;
+    font-size:55px;
 
-margin-bottom:50px;
+    margin-bottom:50px;
 
 }
 
@@ -124,7 +174,7 @@ margin-bottom:50px;
 
 .regular{
 
-margin-top:100px;
+    margin-top:100px;
 
 }
 
@@ -132,11 +182,11 @@ margin-top:100px;
 
 .cards{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-gap:35px;
+    gap:35px;
 
 }
 
@@ -144,23 +194,23 @@ gap:35px;
 
 .card{
 
-height:350px;
+    height:350px;
 
-background:#0d0d0d;
+    background:#0d0d0d;
 
-border:1px solid #222;
+    border:1px solid #222;
 
-border-radius:30px;
+    border-radius:30px;
 
-padding:35px;
+    padding:35px;
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-justify-content:end;
+    justify-content:flex-end;
 
-transition:.3s;
+    transition:.3s;
 
 }
 
@@ -168,15 +218,7 @@ transition:.3s;
 
 .card:hover{
 
-transform:translateY(-10px);
-
-}
-
-
-
-.big{
-
-height:450px;
+    transform:translateY(-10px);
 
 }
 
@@ -184,7 +226,7 @@ height:450px;
 
 .card h3{
 
-font-size:35px;
+    font-size:35px;
 
 }
 
@@ -192,35 +234,119 @@ font-size:35px;
 
 .card p{
 
-font-size:22px;
+    color:#777;
 
-color:#888;
+    font-size:22px;
 
-margin-top:15px;
+    margin-top:10px;
 
 }
 
+
+
+.big{
+
+    height:450px;
+
+}
+
+
+
+
+/* MOBILE */
 
 
 @media(max-width:800px){
 
-.cards{
 
-grid-template-columns:1fr;
+header{
+
+    height:95px;
+
+    padding:0 20px;
+
+}
+
+
+
+.logo{
+
+    font-size:30px;
+
+    letter-spacing:7px;
 
 }
 
 
-.hero h1{
 
-font-size:70px;
+.menu{
+
+    font-size:38px;
 
 }
+
 
 
 nav{
 
-display:none;
+    display:none;
+
+}
+
+
+
+.hero{
+
+    height:75vh;
+
+}
+
+
+
+.hero h1{
+
+    font-size:65px;
+
+    letter-spacing:12px;
+
+}
+
+
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.shop{
+
+    padding:70px 20px;
+
+}
+
+
+
+.shop h2{
+
+    font-size:40px;
+
+}
+
+
+.card{
+
+    height:300px;
 
 }
 
