@@ -19,336 +19,195 @@ font-family:Arial,Helvetica,sans-serif;
 }
 
 
-
 #loader,#product-loader{
-
 position:fixed;
 inset:0;
 background:#000;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 flex-direction:column;
 z-index:999;
-
 }
 
 
 #loader h1,#product-loader h1{
-
-font-size:50px;
-letter-spacing:12px;
-
+font-size:45px;
+letter-spacing:10px;
 }
 
 
 .dots{
-
 font-size:45px;
 margin-top:20px;
-
 }
-
 
 
 
 header{
-
 height:130px;
-
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 padding:0 6%;
-
 background:#000;
-
 position:sticky;
 top:0;
 z-index:20;
-
 }
-
 
 
 .logo{
-
 font-size:60px;
 font-weight:900;
 letter-spacing:14px;
-
 }
-
 
 
 nav{
-
 display:flex;
 gap:25px;
-
 }
-
-
-
-button{
-
-cursor:pointer;
-
-}
-
 
 
 nav button,.cart{
-
 background:#111;
 color:white;
-
 border:1px solid #333;
-
-padding:24px 40px;
-
+padding:22px 35px;
 border-radius:50px;
-
-font-size:22px;
-
+font-size:20px;
 font-weight:900;
-
+cursor:pointer;
 }
-
 
 
 .section{
-
 padding:90px 7%;
-
 }
-
 
 
 .title{
-
 font-size:70px;
-
 margin-bottom:50px;
-
 }
-
 
 
 .cards{
-
 display:grid;
-
 grid-template-columns:repeat(3,1fr);
-
 gap:35px;
-
 }
-
 
 
 .card{
-
 background:#111;
-
 border-radius:35px;
-
 padding:25px;
-
 opacity:0;
-
 transform:translateY(40px);
-
 transition:.5s;
-
 }
-
 
 
 .card.show{
-
 opacity:1;
-
 transform:translateY(0);
-
 }
-
 
 
 .card img{
-
 width:100%;
-
 height:250px;
-
 object-fit:cover;
-
 border-radius:25px;
-
 }
 
 
-
 .card h2{
-
 margin-top:20px;
-
 font-size:35px;
-
 }
 
 
 
 .add,.checkout,.back{
-
 padding:22px 45px;
-
 border:none;
-
 border-radius:50px;
-
-font-size:24px;
-
+font-size:22px;
 font-weight:900;
-
 margin-top:20px;
-
 }
 
 
-
-.add{
-
+.add,.checkout,.back{
 background:white;
 color:black;
-
 }
-
-
-
-.checkout{
-
-background:white;
-color:black;
-width:100%;
-
-}
-
-
-
-.back{
-
-background:white;
-color:black;
-
-}
-
 
 
 #product-page{
-
 display:none;
-
 }
 
 
-
-#product-page img{
-
+#product-img{
 width:500px;
 max-width:100%;
 border-radius:30px;
-
 }
 
 
 
 #cart-box{
-
 display:none;
-
 position:fixed;
-
 right:25px;
-
 top:140px;
-
 width:420px;
-
 background:#111;
-
-border:1px solid #333;
-
 border-radius:35px;
-
 padding:30px;
-
 z-index:100;
-
 }
 
 
 
 .cart-item{
-
 display:flex;
-
 justify-content:space-between;
-
 margin:20px 0;
-
-font-size:20px;
-
 }
-
 
 
 .remove{
-
 background:#222;
-
 color:white;
-
 border:none;
-
-padding:12px;
-
+padding:10px;
 border-radius:30px;
-
-font-size:18px;
-
 }
-
 
 
 
 @media(max-width:800px){
 
 .cards{
-
 grid-template-columns:1fr;
-
 }
 
-
 .logo{
-
 font-size:35px;
-
 }
 
 
 nav button,.cart{
-
 font-size:14px;
-
 padding:15px;
-
 }
 
 }
-
 
 </style>
 
@@ -356,7 +215,6 @@ padding:15px;
 
 
 <body>
-
 
 
 <div id="loader">
@@ -369,8 +227,7 @@ padding:15px;
 
 
 
-
-<div id="product-loader" style="display:none;">
+<div id="product-loader" style="display:none">
 
 <h1>ASTRIS MOTO</h1>
 
@@ -381,9 +238,7 @@ padding:15px;
 
 
 
-
 <header>
-
 
 <div class="logo">ASTRIS</div>
 
@@ -399,7 +254,7 @@ padding:15px;
 </nav>
 
 
-<button class="cart" onclick="openCart()">
+<button class="cart" onclick="openCart">
 
 🖤 Cart (<span id="count">0</span>)
 
@@ -412,8 +267,7 @@ padding:15px;
 
 
 
-
-<div id="products" class="section">
+<section id="products" class="section">
 
 
 <h1 class="title">Most Popular</h1>
@@ -422,26 +276,16 @@ padding:15px;
 <div class="cards">
 
 
-
 <div class="card accessories" onclick="openProduct('Foot Locks',40,'Images/footlocks.jpg')">
 
-<img src="Images/footlocks.jpg">
+
+<img src="Images/footlocks.jpg" alt="Foot Locks">
+
 
 <h2>Foot Locks</h2>
 
 <p>$40</p>
 
-</div>
-
-
-
-<div class="card clothes" onclick="openProduct('ASTRIS Tee',35,'Images/tee.jpg')">
-
-<img src="Images/tee.jpg">
-
-<h2>ASTRIS Tee</h2>
-
-<p>$35</p>
 
 </div>
 
@@ -449,61 +293,7 @@ padding:15px;
 </div>
 
 
-
-
-
-<h1 class="title">All Products</h1>
-
-
-<div class="cards">
-
-
-
-<div class="card accessories" onclick="openProduct('Pegs',30,'Images/pegs.jpg')">
-
-<img src="Images/pegs.jpg">
-
-<h2>Pegs</h2>
-
-<p>$30</p>
-
-</div>
-
-
-
-
-<div class="card accessories" onclick="openProduct('Stickers',10,'Images/stickers.jpg')">
-
-<img src="Images/stickers.jpg">
-
-<h2>Stickers</h2>
-
-<p>$10</p>
-
-</div>
-
-
-
-
-<div class="card clothes" onclick="openProduct('Hoodie',70,'Images/hoodie.jpg')">
-
-<img src="Images/hoodie.jpg">
-
-<h2>Hoodie</h2>
-
-<p>$70</p>
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
+</section>
 
 
 
@@ -541,12 +331,9 @@ padding:15px;
 
 
 
-
 <div id="cart-box">
 
-
 <h1>Your Cart</h1>
-
 
 <div id="items"></div>
 
@@ -554,7 +341,7 @@ padding:15px;
 <h2>Total $<span id="total">0</span></h2>
 
 
-<button class="checkout" onclick="checkout()">
+<button class="checkout">
 
 Checkout
 
@@ -613,13 +400,14 @@ add(current.name,current.price);
 
 
 
-function update(){
 
+function update(){
 
 document.getElementById("count").innerHTML=cart.length;
 
 
 let html="";
+
 
 let total=0;
 
@@ -686,16 +474,8 @@ document.getElementById("cart-box").style.display="none";
 
 
 
-function checkout(){
-
-alert("Checkout coming soon 🖤");
-
-}
-
-
 
 function openProduct(name,price,img){
-
 
 current={name,price};
 
@@ -725,8 +505,8 @@ document.getElementById("product-price").innerHTML="$"+price;
 
 },2000);
 
-
 }
+
 
 
 
@@ -748,7 +528,6 @@ c.style.display="block";
 
 });
 
-
 window.scrollTo(0,0);
 
 }
@@ -763,7 +542,6 @@ c.style.display=c.classList.contains(type)?"block":"none";
 
 });
 
-
 window.scrollTo(0,0);
 
 }
@@ -772,35 +550,11 @@ window.scrollTo(0,0);
 
 window.onload=()=>{
 
-
 setTimeout(()=>{
 
 document.getElementById("loader").style.display="none";
 
 },2000);
-
-
-
-document.querySelectorAll(".card").forEach(card=>{
-
-
-let observer=new IntersectionObserver(e=>{
-
-
-if(e[0].isIntersecting){
-
-card.classList.add("show");
-
-}
-
-
-});
-
-
-observer.observe(card);
-
-
-});
 
 
 update();
