@@ -6,331 +6,176 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
 background:#000;
 color:white;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 }
 
-
 header{
-
 height:120px;
 display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0 6%;
-
-background:#000;
-
 position:sticky;
 top:0;
+background:#000;
 z-index:10;
-
 }
 
-
 .logo{
-
 font-size:55px;
 font-weight:900;
 letter-spacing:14px;
-
 }
-
-
 
 nav{
-
 display:flex;
-gap:25px;
-
+gap:20px;
 }
 
-
-
-nav button{
-
+nav button,.cart{
 background:#111;
 color:white;
-
 border:1px solid #333;
-
-padding:18px 30px;
-
+padding:16px 25px;
 border-radius:40px;
-
-font-size:22px;
-
 font-weight:800;
-
 cursor:pointer;
-
 }
-
-
 
 .cart{
-
 background:white;
-
 color:black;
-
-padding:18px 35px;
-
-border:none;
-
-border-radius:40px;
-
-font-size:22px;
-
-font-weight:900;
-
-cursor:pointer;
-
 }
-
 
 
 .section{
-
-padding:80px 7%;
-
 display:none;
-
+padding:80px 7%;
 }
-
-
 
 .active{
-
 display:block;
-
 }
-
 
 
 h2{
-
-font-size:65px;
-
-margin-bottom:50px;
-
+font-size:60px;
+margin-bottom:40px;
 }
-
 
 
 .cards{
-
 display:grid;
-
 grid-template-columns:repeat(3,1fr);
-
-gap:35px;
-
+gap:30px;
 }
-
 
 
 .card{
-
-height:360px;
-
 background:#111;
-
 border:1px solid #333;
-
-border-radius:35px;
-
-padding:35px;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:end;
-
+border-radius:30px;
+padding:25px;
 }
 
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+}
 
 
 .card h3{
-
-font-size:38px;
-
+font-size:35px;
+margin-top:15px;
 }
-
 
 
 .card p{
-
-font-size:25px;
-
-color:#888;
-
-margin:15px 0;
-
+color:#aaa;
+font-size:22px;
+margin:10px 0;
 }
 
+
+.add,.back{
+border:none;
+border-radius:30px;
+padding:14px 25px;
+font-weight:900;
+cursor:pointer;
+}
 
 
 .add{
-
-padding:15px 30px;
-
-border:none;
-
-border-radius:30px;
-
-font-weight:900;
-
-cursor:pointer;
-
+background:white;
 }
-
 
 
 .back{
-
-background:#111;
-
+background:#222;
 color:white;
-
-padding:15px 30px;
-
-border-radius:30px;
-
-border:none;
-
-font-size:18px;
-
-margin-bottom:30px;
-
+margin-bottom:25px;
 }
-
 
 
 #cart-box{
-
 display:none;
-
 position:fixed;
-
-right:30px;
-
+right:25px;
 top:130px;
-
-width:420px;
-
+width:400px;
 background:#111;
-
 border:1px solid #333;
-
-border-radius:35px;
-
-padding:35px;
-
+border-radius:30px;
+padding:30px;
 z-index:50;
-
 }
-
 
 
 .cart-line{
-
 display:flex;
-
 justify-content:space-between;
-
 margin:20px 0;
-
-font-size:20px;
-
 }
-
 
 
 .remove{
-
 background:#222;
-
 color:white;
-
 border:none;
-
 padding:8px 15px;
-
 border-radius:20px;
-
 }
-
 
 
 @media(max-width:800px){
 
-header{
-
-flex-wrap:wrap;
-
-height:auto;
-
-padding:25px;
-
+.cards{
+grid-template-columns:1fr;
 }
-
 
 .logo{
-
-font-size:38px;
-
+font-size:35px;
 }
-
 
 nav button{
-
-font-size:14px;
-
-padding:12px;
-
+font-size:13px;
+padding:10px;
 }
-
-
-cards{
-
-grid-template-columns:1fr;
-
-}
-
-.cards{
-
-grid-template-columns:1fr;
-
-}
-
-
-.card{
-
-height:300px;
-
-}
-
 
 #cart-box{
-
 width:90%;
-
-right:5%;
-
 }
 
 }
-
 
 </style>
 
@@ -340,202 +185,109 @@ right:5%;
 <body>
 
 
-
 <header>
 
-
 <div class="logo">ASTRIS</div>
-
 
 <nav>
 
 <button onclick="show('home')">Home</button>
-
 <button onclick="show('accessories')">Accessories</button>
-
 <button onclick="show('clothes')">Clothing</button>
 
 </nav>
 
-
 <button class="cart" onclick="openCart()">
-
 🖤 Cart (<span id="count">0</span>)
-
 </button>
-
 
 </header>
 
 
 
-
-
 <section id="home" class="section active">
-
 
 <h2>Most Popular</h2>
 
-
 <div class="cards">
 
-
-
 <div class="card">
-
+<img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39">
 <h3>Foot Locks</h3>
-
 <p>$40</p>
-
-<button class="add" onclick="add('Foot Locks',40)">
-🖤 Add to Cart
-</button>
-
+<button class="add" onclick="add('Foot Locks',40)">🖤 Add to Cart</button>
 </div>
 
 
-
-
 <div class="card">
-
-<h3>ASTRIS Hoodie</h3>
-
-<p>$70</p>
-
-<button class="add" onclick="add('ASTRIS Hoodie',70)">
-🖤 Add to Cart
-</button>
-
-</div>
-
-
-
-
-<div class="card">
-
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
 <h3>ASTRIS Tee</h3>
-
 <p>$35</p>
+<button class="add" onclick="add('ASTRIS Tee',35)">🖤 Add to Cart</button>
+</div>
 
-<button class="add" onclick="add('ASTRIS Tee',35)">
-🖤 Add to Cart
-</button>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7">
+<h3>ASTRIS Hoodie</h3>
+<p>$70</p>
+<button class="add" onclick="add('ASTRIS Hoodie',70)">🖤 Add to Cart</button>
+</div>
 
 </div>
 
 
-
-</div>
-
-
-
-
-
-<h2 style="margin-top:100px;">All Products</h2>
-
-
+<h2 style="margin-top:90px">Accessories</h2>
 
 <div class="cards">
 
-
-
 <div class="card">
-
+<img src="https://images.unsplash.com/photo-1527281400683-1aae777175f8">
 <h3>Grips</h3>
-
 <p>$25</p>
-
-<button class="add" onclick="add('Grips',25)">
-🖤 Add to Cart
-</button>
-
+<button class="add" onclick="add('Grips',25)">🖤 Add to Cart</button>
 </div>
-
 
 
 <div class="card">
-
+<img src="https://images.unsplash.com/photo-1557683316-973673baf926">
 <h3>Stickers</h3>
-
 <p>$10</p>
-
-<button class="add" onclick="add('Stickers',10)">
-🖤 Add to Cart
-</button>
-
+<button class="add" onclick="add('Stickers',10)">🖤 Add to Cart</button>
 </div>
 
-
-
 </div>
-
 
 </section>
-
-
 
 
 
 
 <section id="accessories" class="section">
 
-
-<button class="back" onclick="show('home')">
-← Back
-</button>
-
+<button class="back" onclick="show('home')">← Back</button>
 
 <h2>Accessories</h2>
 
-
 <div class="cards">
 
-
 <div class="card">
-
+<img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39">
 <h3>Foot Locks</h3>
-
 <p>$40</p>
-
-<button class="add" onclick="add('Foot Locks',40)">
-🖤 Add to Cart
-</button>
-
+<button class="add" onclick="add('Foot Locks',40)">🖤 Add to Cart</button>
 </div>
 
-
 <div class="card">
-
+<img src="https://images.unsplash.com/photo-1527281400683-1aae777175f8">
 <h3>Grips</h3>
-
 <p>$25</p>
-
-<button class="add" onclick="add('Grips',25)">
-🖤 Add to Cart
-</button>
-
+<button class="add" onclick="add('Grips',25)">🖤 Add to Cart</button>
 </div>
 
-
-<div class="card">
-
-<h3>Stickers</h3>
-
-<p>$10</p>
-
-<button class="add" onclick="add('Stickers',10)">
-🖤 Add to Cart
-</button>
-
 </div>
-
-
-</div>
-
 
 </section>
-
-
 
 
 
@@ -543,45 +295,26 @@ right:5%;
 
 <section id="clothes" class="section">
 
-
-<button class="back" onclick="show('home')">
-← Back
-</button>
-
+<button class="back" onclick="show('home')">← Back</button>
 
 <h2>Clothing</h2>
 
-
 <div class="cards">
 
-
 <div class="card">
-
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
 <h3>ASTRIS Tee</h3>
-
 <p>$35</p>
-
-<button class="add" onclick="add('ASTRIS Tee',35)">
-🖤 Add to Cart
-</button>
-
+<button class="add" onclick="add('ASTRIS Tee',35)">🖤 Add to Cart</button>
 </div>
-
 
 
 <div class="card">
-
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7">
 <h3>ASTRIS Hoodie</h3>
-
 <p>$70</p>
-
-<button class="add" onclick="add('ASTRIS Hoodie',70)">
-🖤 Add to Cart
-</button>
-
+<button class="add" onclick="add('ASTRIS Hoodie',70)">🖤 Add to Cart</button>
 </div>
-
-
 
 </div>
 
@@ -593,41 +326,29 @@ right:5%;
 
 <div id="cart-box">
 
-
 <h2>Your Cart</h2>
-
 
 <div id="items"></div>
 
-
 <h3>Total: $<span id="total">0</span></h3>
 
+<button class="back" onclick="checkout()">Checkout</button>
 
-<button class="back" onclick="closeCart()">
-Close
-</button>
-
+<button class="back" onclick="closeCart()">Close</button>
 
 </div>
 
 
 
 
-
-
 <script>
 
-
-let cart=JSON.parse(localStorage.getItem("cart")) || [];
-
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
 
 
 function save(){
-
 localStorage.setItem("cart",JSON.stringify(cart));
-
 }
-
 
 
 function add(name,price){
@@ -641,7 +362,6 @@ update();
 }
 
 
-
 function removeItem(i){
 
 cart.splice(i,1);
@@ -653,38 +373,28 @@ update();
 }
 
 
-
 function update(){
 
 document.getElementById("count").innerHTML=cart.length;
 
-
 let html="";
-
 let total=0;
-
 
 cart.forEach((item,i)=>{
 
 total+=item.price;
 
-
-html += `
+html+=`
 
 <div class="cart-line">
 
-${item.name}
+${item.name} $${item.price}
 
-<button class="remove" onclick="removeItem(${i})">
-X
-</button>
+<button class="remove" onclick="removeItem(${i})">X</button>
 
-</div>
-
-`;
+</div>`;
 
 });
-
 
 document.getElementById("items").innerHTML=html;
 
@@ -693,42 +403,34 @@ document.getElementById("total").innerHTML=total;
 }
 
 
-
-
 function openCart(){
-
 document.getElementById("cart-box").style.display="block";
-
 update();
-
 }
-
 
 
 function closeCart(){
-
 document.getElementById("cart-box").style.display="none";
-
 }
-
 
 
 function show(page){
 
-document.querySelectorAll(".section").forEach(x=>{
-
-x.classList.remove("active");
-
-});
-
+document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));
 
 document.getElementById(page).classList.add("active");
 
 }
 
 
-update();
+function checkout(){
 
+alert("Checkout setup next 🖤");
+
+}
+
+
+update();
 
 </script>
 
