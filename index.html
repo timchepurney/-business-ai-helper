@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Astris</title>
+<title>Astris Moto</title>
 
 <style>
 
@@ -15,31 +15,81 @@ box-sizing:border-box;
 body{
 background:#000;
 color:white;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
+
+
+#loader{
+
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
+
+}
+
+
+#loader h1{
+
+font-size:50px;
+letter-spacing:12px;
+
+}
+
+
+.dots{
+
+margin-top:25px;
+font-size:45px;
+animation:blink 1s infinite;
+
+}
+
+
+@keyframes blink{
+
+50%{opacity:.2;}
+
+}
+
+
 
 
 header{
 
-height:140px;
+height:120px;
+
 display:flex;
+
 align-items:center;
+
 justify-content:space-between;
+
 padding:0 6%;
 
-background:#000;
 position:sticky;
+
 top:0;
-z-index:10;
+
+background:#000;
+
+z-index:20;
 
 }
 
 
+
 .logo{
 
-font-size:60px;
+font-size:55px;
+
 font-weight:900;
-letter-spacing:15px;
+
+letter-spacing:12px;
 
 }
 
@@ -48,10 +98,18 @@ letter-spacing:15px;
 nav{
 
 display:flex;
-gap:25px;
+
+gap:20px;
 
 }
 
+
+
+button{
+
+cursor:pointer;
+
+}
 
 
 nav button,.cart{
@@ -62,24 +120,13 @@ color:white;
 
 border:1px solid #333;
 
-padding:22px 38px;
+padding:18px 30px;
 
-border-radius:50px;
-
-font-size:22px;
+border-radius:40px;
 
 font-weight:900;
 
-cursor:pointer;
-
-}
-
-
-
-nav button:hover,.cart:hover{
-
-background:white;
-color:black;
+font-size:20px;
 
 }
 
@@ -87,16 +134,29 @@ color:black;
 
 .section{
 
-padding:80px 7%;
+padding:100px 7%;
 
 }
+
+
+
+.title{
+
+font-size:70px;
+
+margin-bottom:50px;
+
+}
+
 
 
 
 .cards{
 
 display:grid;
+
 grid-template-columns:repeat(3,1fr);
+
 gap:35px;
 
 }
@@ -107,13 +167,25 @@ gap:35px;
 
 background:#111;
 
-border:1px solid #333;
-
 border-radius:35px;
 
-padding:30px;
+padding:25px;
 
-cursor:pointer;
+opacity:0;
+
+transform:translateY(50px);
+
+transition:.7s;
+
+}
+
+
+
+.card.show{
+
+opacity:1;
+
+transform:translateY(0);
 
 }
 
@@ -123,7 +195,7 @@ cursor:pointer;
 
 width:100%;
 
-height:230px;
+height:250px;
 
 object-fit:cover;
 
@@ -133,11 +205,11 @@ border-radius:25px;
 
 
 
-.card h3{
+.card h2{
 
-font-size:38px;
+margin-top:20px;
 
-margin-top:15px;
+font-size:35px;
 
 }
 
@@ -145,121 +217,9 @@ margin-top:15px;
 
 .card p{
 
-font-size:24px;
-
 color:#aaa;
 
-}
-
-
-
-.add,.buy,.back{
-
-padding:20px 40px;
-
-border:none;
-
-border-radius:45px;
-
 font-size:22px;
-
-font-weight:900;
-
-cursor:pointer;
-
-margin-top:20px;
-
-}
-
-
-
-.add{
-
-background:white;
-
-color:black;
-
-}
-
-
-
-.buy{
-
-background:#222;
-
-color:white;
-
-}
-
-
-
-.back{
-
-background:#111;
-
-color:white;
-
-}
-
-
-
-#product-page{
-
-display:none;
-
-}
-
-
-
-#cart-box{
-
-display:none;
-
-position:fixed;
-
-right:25px;
-
-top:130px;
-
-width:430px;
-
-background:#111;
-
-border:1px solid #333;
-
-border-radius:35px;
-
-padding:35px;
-
-z-index:50;
-
-}
-
-
-
-.cart-line{
-
-display:flex;
-
-justify-content:space-between;
-
-margin:20px 0;
-
-}
-
-
-
-.remove{
-
-background:#222;
-
-color:white;
-
-border:none;
-
-padding:10px;
-
-border-radius:20px;
 
 }
 
@@ -276,16 +236,16 @@ grid-template-columns:1fr;
 
 .logo{
 
-font-size:38px;
+font-size:32px;
 
 }
 
 
 nav button,.cart{
 
-font-size:15px;
+font-size:13px;
 
-padding:14px;
+padding:12px;
 
 }
 
@@ -300,68 +260,82 @@ padding:14px;
 <body>
 
 
+<div id="loader">
+
+<h1>ASTRIS MOTO</h1>
+
+<div class="dots">...</div>
+
+</div>
+
+
+
+
 <header>
 
-<div class="logo">ASTRIS</div>
+
+<div class="logo">
+
+ASTRIS
+
+</div>
 
 
 <nav>
 
-<button onclick="showProducts()">Home</button>
+<button onclick="home()">Home</button>
 
-<button onclick="filter('accessories')">Accessories</button>
+<button onclick="filterProducts('accessories')">Accessories</button>
 
-<button onclick="filter('clothes')">Clothing</button>
+<button onclick="filterProducts('clothes')">Clothing</button>
 
 </nav>
 
 
-<button class="cart" onclick="openCart()">
+<button class="cart">
 
-🖤 Cart (<span id="count">0</span>)
+🖤 Cart
 
 </button>
+
 
 </header>
 
 
 
-<div id="products" class="section">
 
 
-<h1>Most Popular</h1>
+<section class="section">
+
+
+<h1 class="title">
+
+Most Popular
+
+</h1>
 
 
 <div class="cards">
 
 
-<div class="card accessories" onclick="openProduct('Foot Locks',40,'Images/footlocks.jpg')">
+
+<div class="card accessories">
 
 <img src="Images/footlocks.jpg">
 
-<h3>Foot Locks</h3>
+<h2>Foot Locks</h2>
 
 <p>$40</p>
 
 </div>
 
 
-<div class="card clothes" onclick="openProduct('ASTRIS Hoodie',70,'Images/hoodie.jpg')">
 
-<img src="Images/hoodie.jpg">
-
-<h3>ASTRIS Hoodie</h3>
-
-<p>$70</p>
-
-</div>
-
-
-<div class="card clothes" onclick="openProduct('ASTRIS Tee',35,'Images/tee.jpg')">
+<div class="card clothes">
 
 <img src="Images/tee.jpg">
 
-<h3>ASTRIS Tee</h3>
+<h2>Astris Tee</h2>
 
 <p>$35</p>
 
@@ -370,67 +344,70 @@ padding:14px;
 
 </div>
 
-</div>
+
+</section>
 
 
 
 
-<div id="product-page" class="section">
-
-<button class="back" onclick="back()">
-
-← Back
-
-</button>
 
 
-<img id="product-img" width="450">
+<section class="section">
 
 
-<h1 id="product-name"></h1>
+<h1 class="title">
 
-<h2 id="product-price"></h2>
+All Products
 
-
-<button class="add" onclick="addCurrent()">
-
-🖤 Add to Cart
-
-</button>
+</h1>
 
 
-<button class="buy">
+<div class="cards">
 
-Buy Now
 
-</button>
 
+<div class="card accessories">
+
+<img src="Images/pegs.jpg">
+
+<h2>Pegs</h2>
+
+<p>$30</p>
 
 </div>
 
 
 
 
-<div id="cart-box">
+<div class="card accessories">
+
+<img src="Images/stickers.jpg">
+
+<h2>Stickers</h2>
+
+<p>$10</p>
+
+</div>
 
 
-<h2>Your Cart</h2>
 
 
-<div id="items"></div>
+<div class="card clothes">
 
+<img src="Images/hoodie.jpg">
 
-<h3>Total: $<span id="total">0</span></h3>
+<h2>Hoodie</h2>
 
+<p>$70</p>
 
-<button class="back" onclick="closeCart()">
+</div>
 
-Close
-
-</button>
 
 
 </div>
+
+
+</section>
 
 
 
@@ -438,160 +415,116 @@ Close
 
 <script>
 
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
 
-let current={};
+window.onload=()=>{
 
 
-function save(){
+setTimeout(()=>{
 
-localStorage.setItem("cart",JSON.stringify(cart));
+document.getElementById("loader").style.display="none";
+
+
+showCards();
+
+
+},2000);
+
+
+
+};
+
+
+
+function showCards(){
+
+
+let cards=document.querySelectorAll(".card");
+
+
+cards.forEach(card=>{
+
+
+let observer=new IntersectionObserver(entries=>{
+
+
+entries.forEach(e=>{
+
+if(e.isIntersecting){
+
+card.classList.add("show");
 
 }
-
-
-
-function addCurrent(){
-
-add(current.name,current.price);
-
-}
-
-
-
-function add(name,price){
-
-cart.push({name,price});
-
-save();
-
-update();
-
-}
-
-
-
-function update(){
-
-document.getElementById("count").innerHTML=cart.length;
-
-
-let html="";
-
-let total=0;
-
-
-cart.forEach((x,i)=>{
-
-total+=x.price;
-
-
-html+=`
-
-<div class="cart-line">
-
-${x.name} $${x.price}
-
-<button class="remove" onclick="removeItem(${i})">
-
-X
-
-</button>
-
-</div>
-
-`;
 
 });
 
 
-document.getElementById("items").innerHTML=html;
+});
 
-document.getElementById("total").innerHTML=total;
+
+observer.observe(card);
+
+
+});
+
 
 }
 
 
 
-function removeItem(i){
+function home(){
 
-cart.splice(i,1);
+document.querySelectorAll(".card").forEach(c=>{
 
-save();
+c.style.display="block";
 
-update();
+});
 
-}
+window.scrollTo({
 
+top:0,
 
+behavior:"smooth"
 
-function openCart(){
-
-document.getElementById("cart-box").style.display="block";
-
-}
-
-
-
-function closeCart(){
-
-document.getElementById("cart-box").style.display="none";
+});
 
 }
 
 
 
-function openProduct(name,price,img){
+function filterProducts(type){
 
-current={name,price};
-
-document.getElementById("products").style.display="none";
-
-document.getElementById("product-page").style.display="block";
-
-document.getElementById("product-img").src=img;
-
-document.getElementById("product-name").innerHTML=name;
-
-document.getElementById("product-price").innerHTML="$"+price;
-
-}
-
-
-
-function back(){
-
-document.getElementById("product-page").style.display="none";
-
-document.getElementById("products").style.display="block";
-
-}
-
-
-
-function filter(type){
 
 document.querySelectorAll(".card").forEach(card=>{
 
-card.style.display=card.classList.contains(type)?"block":"none";
+
+if(card.classList.contains(type)){
+
+card.style.display="block";
+
+}
+
+else{
+
+card.style.display="none";
+
+}
+
 
 });
 
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
 }
 
 
-
-function showProducts(){
-
-document.getElementById("product-page").style.display="none";
-
-document.getElementById("products").style.display="block";
-
-}
-
-
-
-update();
 
 </script>
 
